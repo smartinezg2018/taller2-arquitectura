@@ -61,6 +61,7 @@
 ### 2. Lista de imágenes almacenadas en GCP
 
 *(Pegue aquí el pantallazo)*
+![alt text](image-2.png)
 
 ### 3. Dos pantallazos de la aplicación
 
