@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokenea Retriever</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #result {
+            margin-top: 1.5rem;
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        .pokenea-info {
+            background: #fafafa;
+            border: 1px solid #eaeaea;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+        }
+
+        .pokenea-info h2 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+            font-size: 1.4rem;
+        }
+
+        .pokenea-info p {
+            margin: 6px 0;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .pokenea-info blockquote {
+            margin: 12px 0 0 0;
+            padding-left: 10px;
+            border-left: 3px solid #007bff;
+            font-style: italic;
+            color: #666;
+        }
+
+        .pokenea-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-msg {
+            color: #dc3545;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Pokenea API</h1>
+        <button onclick="getPokenea()">Obtener Pokenea Aleatorio</button>
+        <div id="result">¡Haz clic en el botón para consultar los datos!</div>
+    </div>
+
+    <script>
+        async function getPokenea() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = "<p style='text-align:center;'>Cargando Pokenea...</p>";
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/');
+
+                if (!response.ok) {
+                    throw new Error(`Error HTTP! Estado: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // 1. Formatear y construir primero la información del Pokenea
+                let htmlOutput = `
+                    <div class="pokenea-info">
+                        <h2>#${data.id || '?'} - ${data.nombre || 'Desconocido'}</h2>
+                        <p><strong>Altura:</strong> ${data.altura || 'N/A'}</p>
+                        <p><strong>Habilidad:</strong> ${data.habilidad || 'N/A'}</p>
+                        ${data.frase ? `<blockquote>"${data.frase}"</blockquote>` : ''}
+                        <p><strong>container_id:</strong> ${data.container_id || 'N/A'}</p>
+                    </div>
+                `;
+
+                // 2. Insertar la imagen inmediatamente después de la información
+                const imgUrl = data.imagen || data.image;
+                if (imgUrl) {
+                    htmlOutput += `<img src="${imgUrl}" alt="${data.nombre || 'Pokenea'}" class="pokenea-img">`;
+                }
+
+                resultDiv.innerHTML = htmlOutput;
+
+            } catch (error) {
+                console.error("Error al obtener los datos:", error);
+                resultDiv.innerHTML = `<p class="error-msg">Error al conectar con la API.<br><small>¿Está corriendo FastAPI en http://127.0.0.1:8000/?</small></p>`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

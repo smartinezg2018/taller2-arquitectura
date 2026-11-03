@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "Arepachu",
+        "altura": "1.5 m",
+        "habilidad": "Descarga de maíz",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(1).jpg",
+        "frase": "La vida es como una arepa: hay que darle la vuelta a tiempo."
+    },
+    {
+        "id": 2,
+        "nombre": "Bandejamon",
+        "altura": "1.2 m",
+        "habilidad": "Hambre infinita",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(2).jpg",
+        "frase": "Quien mucho abarca, mucho chicharrón deja."
+    },
+    {
+        "id": 3,
+        "nombre": "Paisachu",
+        "altura": "1.8 m",
+        "habilidad": "Regateo supremo",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(3).jpg",
+        "frase": "No hay mal que por bien no venga, ni descuento que no se pida."
+    },
+    {
+        "id": 4,
+        "nombre": "Guatapeon",
+        "altura": "1.0 m",
+        "habilidad": "Escalar 740 escalones",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(4).jpg",
+        "frase": "El que sube con paciencia, ve el embalse con más claridad."
+    },
+    {
+        "id": 5,
+        "nombre": "Silletero",
+        "altura": "1.6 m",
+        "habilidad": "Carga de flores",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(7).jpg",
+        "frase": "Cargar belleza pesa, pero florece el camino."
+    },
+    {
+        "id": 6,
+        "nombre": "Metrocito",
+        "altura": "2.0 m",
+        "habilidad": "Puntualidad extrema",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(5).jpg",
+        "frase": "El tiempo es un tren: o te subes o lo ves pasar."
+    },
+    {
+        "id": 7,
+        "nombre": "Aguardientino",
+        "altura": "1.9 m",
+        "habilidad": "Cantar sin parar",
+        "imagen": "https://storage.googleapis.com/pokenea-proyecto-arquitectura/images%20(6).jpg",
+        "frase": "La sabiduría llega después del tercer trago, y se va con el cuarto."
+    }
+]
