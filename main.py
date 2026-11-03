@@ -4,6 +4,7 @@ import random
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+import socket
 
 app = FastAPI(title="Pokenea")
 
@@ -14,8 +15,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
 def get_container_id():
-    return os.environ.get("HOSTNAME", "Desconocido")
+    return socket.gethostname()
 
 # Ruta 1: Devuelve el JSON del Pokenea
 @app.get("/api/pokenea")

@@ -58,6 +58,8 @@
 
 *(Pegue aquí el pantallazo)*
 
+![alt text](image-3.png)
+
 ### 2. Lista de imágenes almacenadas en GCP
 
 *(Pegue aquí el pantallazo)*
