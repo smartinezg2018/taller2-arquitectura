@@ -19,4 +19,4 @@ jobs:
       run: docker build . --file Dockerfile --tag smartinezg234/arquitectura:pokenea
     - name: Docker Push 
 
-      run: docker push smartinezg2018/taller2-arquitectura
+      run: docker push smartinezg234/arquitectura
