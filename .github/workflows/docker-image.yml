@@ -16,7 +16,7 @@ jobs:
       run: | 
         docker login -u $DOCKER_USER -p $DOCKER_PASS 
     - name: Build the Docker image 
-      run: docker build . --file Dockerfile --tag smartinezg234/arquitectura
+      run: docker build . --file Dockerfile --tag smartinezg234/arquitectura:pokenea
     - name: Docker Push 
 
       run: docker push smartinezg2018/taller2-arquitectura
